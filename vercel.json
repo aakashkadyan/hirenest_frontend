@@ -1,14 +1,8 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "routes": [
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/about.html", "dest": "/about.html" },
-    { "src": "/jobs", "dest": "/jobs.html" },
-    { "src": "/jobs.html", "dest": "/jobs.html" },
-    { "src": "/contact", "dest": "/contact.html" },
-    { "src": "/contact.html", "dest": "/contact.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/jobs", "destination": "/jobs.html" },
+    { "source": "/contact", "destination": "/contact.html" }
   ]
 } 
