@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // Restore all imports
 import Home from './pages/Home'
@@ -32,6 +32,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/jobs" element={<CareerPage />} />
+        <Route path="/career" element={<Navigate to="/jobs" replace />} />
         <Route path="/job/:id" element={<JobDetails />} />
         <Route path="/debug" element={<Debug />} />
         
