@@ -1,18 +1,8 @@
 {
     "version": 2,
-    "buildCommand": "npm run build",
-    "outputDirectory": "dist",
-    "installCommand": "npm install",
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
-    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
     "headers": [
-      {
-        "source": "/assets/(.*)\\.js$",
-        "headers": [
-          { "key": "Content-Type", "value": "application/javascript" }
-        ]
-      },
       {
         "source": "/(.*)",
         "headers": [
@@ -22,6 +12,5 @@
           { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
         ]
       }
-    ],
-    "trailingSlash": false
+    ]
   }
