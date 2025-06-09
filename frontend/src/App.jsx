@@ -2,8 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from "react-router-dom";
 
-// Temporarily comment out all imports to isolate the issue
-/*
+// Restore all imports
 import Home from './pages/Home'
 import About from './pages/About'
 import Login from './pages/Login'
@@ -19,25 +18,54 @@ import EmployerProfileForm from './pages/EmployerProfileForm.jsx'
 import CareerPage from './pages/CareerPage'
 import JobDetails from './pages/JobDetails'
 import Debug from './pages/Debug'
-*/
 
 function App() {
-  console.log('App component rendered - simplified version');
+  console.log('App component rendered');
   
   return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      <h1 style={{ color: '#2563eb' }}>HireNest Application</h1>
-      <p>This is a simplified version to test rendering.</p>
-      <p>If you can see this text, React is working correctly!</p>
-      
-      <div style={{ marginTop: '20px', padding: '15px', border: '1px solid #ddd', borderRadius: '5px' }}>
-        <h2>Environment Info</h2>
-        <p>Mode: {import.meta.env.MODE}</p>
-        <p>Base URL: {import.meta.env.BASE_URL}</p>
-        <p>DEV: {String(import.meta.env.DEV)}</p>
-        <p>PROD: {String(import.meta.env.PROD)}</p>
-      </div>
-    </div>
+    <>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/jobs" element={<CareerPage />} />
+        <Route path="/job/:id" element={<JobDetails />} />
+        <Route path="/debug" element={<Debug />} />
+        
+        <Route path="/jobseeker-dashboard" element={
+          <ProtectedRoute allowedRoles={['jobseeker']}>
+            <JobSeekerDashboard />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/employer-dashboard" element={
+          <ProtectedRoute allowedRoles={['employer']}>
+            <EmployerDashboard />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/jobseeker-form" element={
+          <ProtectedRoute allowedRoles={['jobseeker']}>
+            <JobSeekerForm />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/employer-form" element={
+          <ProtectedRoute allowedRoles={['employer']}>
+            <EmployerProfileForm />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/edit-job/:id" element={
+          <ProtectedRoute allowedRoles={['employer']}>
+            <EditJob />
+          </ProtectedRoute>
+        } />
+      </Routes>
+    </>
   )
 }
 
