@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HireNest - Static Version</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    h1 {
+      color: #2563eb;
+    }
+    .button {
+      display: inline-block;
+      background-color: #2563eb;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+    .error-section {
+      margin-top: 30px;
+      background-color: #fff8f8;
+      border: 1px solid #ffcdd2;
+      padding: 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>HireNest</h1>
+  
+  <div class="container">
+    <h2>Static HTML Version</h2>
+    <p>This is a static HTML page without any JavaScript modules.</p>
+    <p>If you can see this page but not the main application, there's likely an issue with how JavaScript modules are being served.</p>
+    
+    <div id="debug-info">
+      <h3>Debug Information</h3>
+      <p>Current URL: <span id="current-url"></span></p>
+      <p>User Agent: <span id="user-agent"></span></p>
+    </div>
+    
+    <a href="/" class="button">Try Main Application</a>
+  </div>
+  
+  <div class="error-section">
+    <h3>Common Issues</h3>
+    <ul>
+      <li>MIME type mismatch for JavaScript modules</li>
+      <li>Missing or incorrect Content-Type headers</li>
+      <li>Incorrect path resolution in Vercel configuration</li>
+    </ul>
+  </div>
+  
+  <script>
+    // Regular script tag (not a module)
+    document.getElementById('current-url').textContent = window.location.href;
+    document.getElementById('user-agent').textContent = navigator.userAgent;
+  </script>
+</body>
+</html> 

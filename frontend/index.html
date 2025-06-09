@@ -21,15 +21,52 @@
         text-align: center;
       }
     </style>
+    <!-- Preload the main script -->
+    <link rel="preload" href="/assets/index-D8i0J9e8.js" as="script">
   </head>
   <body>
     <div class="static-content">
       <h2>HireNest Application</h2>
       <p>If you see only this text, the React application did not load properly.</p>
+      <p><a href="/static.html">View Static Version</a></p>
     </div>
     
     <div id="root"></div>
     
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- Use a regular script tag with defer instead of type="module" -->
+    <script src="/src/main.jsx" defer></script>
+    
+    <!-- Fallback script in case the main script fails -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const root = document.getElementById('root');
+          if (!root || root.children.length === 0) {
+            console.log('React app did not render after 2 seconds');
+            
+            // Add a message to the page
+            const message = document.createElement('div');
+            message.style.padding = '20px';
+            message.style.margin = '20px';
+            message.style.backgroundColor = '#fff8f8';
+            message.style.border = '1px solid #ffcdd2';
+            message.style.borderRadius = '5px';
+            
+            message.innerHTML = `
+              <h3>Application Failed to Load</h3>
+              <p>The React application could not be loaded. This might be due to:</p>
+              <ul>
+                <li>MIME type issues with JavaScript modules</li>
+                <li>JavaScript errors in the application code</li>
+                <li>Network issues preventing script loading</li>
+              </ul>
+              <p>Try refreshing the page or <a href="/static.html">view the static version</a>.</p>
+            `;
+            
+            document.body.appendChild(message);
+          }
+        }, 2000);
+      });
+    </script>
   </body>
 </html>

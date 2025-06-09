@@ -14,7 +14,18 @@ export default defineConfig({
         }
         // Use default for everything else
         warn(warning);
+      },
+      output: {
+        // Ensure proper MIME types for JavaScript files
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
       }
     }
+  },
+  server: {
+    headers: {
+      'Content-Type': 'application/javascript',
+    },
   }
 });
