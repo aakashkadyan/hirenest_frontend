@@ -14,9 +14,13 @@ import JobSeekerForm from './pages/JobSeekerForm.jsx'
 import EmployerProfileForm from './pages/EmployerProfileForm.jsx'
 import CareerPage from './pages/CareerPage'
 import JobDetails from './pages/JobDetails'
+import Debug from './pages/Debug'
 import { Routes, Route } from "react-router-dom";
 
 function App() {
+  // For debugging purposes
+  console.log('App component rendered');
+  
   return (
     <>
       <div>
@@ -27,6 +31,7 @@ function App() {
           <Route exact path='/contact' element={<Contact/>}></Route>
           <Route exact path='/login' element={<Login/>}></Route>
           <Route exact path='/signup' element={<Signup/>}></Route>
+          <Route exact path='/debug' element={<Debug/>}></Route>
           <Route exact path='/jobseekerdashboard' element={
             <ProtectedRoute allowedRole="jobseeker">
               <JobSeekerDashboard/>
