@@ -6,79 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HireNest</title>
     <style>
-      /* Add some basic styling for better visibility */
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
-        line-height: 1.6;
+        margin: 0;
+        padding: 0;
       }
       #root {
-        border: 1px solid #ddd;
+        min-height: 100vh;
+      }
+      .static-content {
         padding: 20px;
-        margin-top: 20px;
-        min-height: 300px;
-      }
-      .debug-panel {
-        margin-top: 30px;
-        padding: 15px;
         background-color: #f5f5f5;
-        border-radius: 5px;
-      }
-      .error {
-        color: red;
-        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <h1>HireNest Application</h1>
-    <p>If you're seeing this text but not the application below, there may be an issue with the React application loading.</p>
+    <div class="static-content">
+      <h2>HireNest Application</h2>
+      <p>If you see only this text, the React application did not load properly.</p>
+    </div>
     
     <div id="root"></div>
     
-    <div class="debug-panel">
-      <h2>Debug Information</h2>
-      <div id="debug-output"></div>
-    </div>
-    
-    <script>
-      // Debug script to check for common issues
-      const debugOutput = document.getElementById('debug-output');
-      
-      function addDebugInfo(message, isError = false) {
-        const p = document.createElement('p');
-        if (isError) p.className = 'error';
-        p.textContent = message;
-        debugOutput.appendChild(p);
-      }
-      
-      // Check if the browser supports required features
-      addDebugInfo(`User Agent: ${navigator.userAgent}`);
-      addDebugInfo(`URL: ${window.location.href}`);
-      
-      // Listen for React errors
-      window.addEventListener('error', (event) => {
-        addDebugInfo(`Error: ${event.message} at ${event.filename}:${event.lineno}:${event.colno}`, true);
-      });
-      
-      // Check if the script loads
-      addDebugInfo('Main HTML loaded successfully');
-    </script>
-    
     <script type="module" src="/src/main.jsx"></script>
-    
-    <script>
-      // Add a delayed check to see if React mounted
-      setTimeout(() => {
-        const root = document.getElementById('root');
-        if (root && root.children.length === 0) {
-          addDebugInfo('React app did not render any content after 3 seconds', true);
-        } else {
-          addDebugInfo('React app rendered content successfully');
-        }
-      }, 3000);
-    </script>
   </body>
 </html>

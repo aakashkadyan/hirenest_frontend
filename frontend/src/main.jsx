@@ -1,59 +1,35 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import ErrorBoundary from './components/ErrorBoundary.jsx'
+import './index.css';
+import App from './App.jsx';
 
-// For debugging purposes
-console.log('React app initializing...');
+console.log('React app initializing - simplified version');
 
-// Function to add debug info to the page
-function addDebugInfo(message, isError = false) {
-  const debugOutput = document.getElementById('debug-output');
-  if (debugOutput) {
-    const p = document.createElement('p');
-    if (isError) p.className = 'error';
-    p.textContent = message;
-    debugOutput.appendChild(p);
-  }
-  console.log(isError ? `ERROR: ${message}` : message);
-}
-
-// Wrap the entire initialization in a try-catch
-try {
-  addDebugInfo('Starting React initialization');
+// Simple direct DOM check
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  console.log('Root element found, rendering app');
   
-  const rootElement = document.getElementById('root');
-  if (!rootElement) {
-    throw new Error('Root element not found');
-  }
+  // Add a text node to confirm DOM manipulation is working
+  const testDiv = document.createElement('div');
+  testDiv.textContent = 'DOM manipulation is working';
+  testDiv.style.padding = '10px';
+  testDiv.style.background = '#f0f0f0';
+  testDiv.style.marginBottom = '10px';
+  rootElement.appendChild(testDiv);
   
-  addDebugInfo('Creating React root');
+  // Render the React app
   const root = createRoot(rootElement);
-  
-  addDebugInfo('Rendering React app');
   root.render(
-    <ErrorBoundary>
+    <React.StrictMode>
       <BrowserRouter>
-        <App/>
+        <App />
       </BrowserRouter>
-    </ErrorBoundary>
+    </React.StrictMode>
   );
   
-  addDebugInfo('React render completed');
-} catch (error) {
-  console.error('Error initializing React app:', error);
-  addDebugInfo(`Failed to initialize React: ${error.message}`, true);
-  
-  // Display error on the page
-  const rootElement = document.getElementById('root');
-  if (rootElement) {
-    rootElement.innerHTML = `
-      <div style="color: red; padding: 20px; border: 1px solid red;">
-        <h2>Error Loading Application</h2>
-        <p>${error.message}</p>
-        <pre>${error.stack}</pre>
-      </div>
-    `;
-  }
+  console.log('React render completed');
+} else {
+  console.error('Root element not found');
 }

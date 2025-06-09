@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import './App.css'
+import { Routes, Route } from "react-router-dom";
+
+// Temporarily comment out all imports to isolate the issue
+/*
 import Home from './pages/Home'
 import About from './pages/About'
 import Login from './pages/Login'
@@ -15,57 +19,25 @@ import EmployerProfileForm from './pages/EmployerProfileForm.jsx'
 import CareerPage from './pages/CareerPage'
 import JobDetails from './pages/JobDetails'
 import Debug from './pages/Debug'
-import { Routes, Route } from "react-router-dom";
+*/
 
 function App() {
-  // For debugging purposes
-  console.log('App component rendered');
+  console.log('App component rendered - simplified version');
   
   return (
-    <>
-      <div>
-        <Routes>
-          <Route exact path='/' element={<Home/>}></Route>
-          <Route exact path='/about' element={<About/>}></Route>
-          <Route exact path='/career' element={<CareerPage/>}></Route>
-          <Route exact path='/contact' element={<Contact/>}></Route>
-          <Route exact path='/login' element={<Login/>}></Route>
-          <Route exact path='/signup' element={<Signup/>}></Route>
-          <Route exact path='/debug' element={<Debug/>}></Route>
-          <Route exact path='/jobseekerdashboard' element={
-            <ProtectedRoute allowedRole="jobseeker">
-              <JobSeekerDashboard/>
-            </ProtectedRoute>
-          }></Route>
-          <Route exact path='/employerdashboard' element={
-            <ProtectedRoute allowedRole="employer">
-              <EmployerDashboard/>
-            </ProtectedRoute>
-          }></Route>
-          <Route exact path='/jobseekerform' element={
-            <ProtectedRoute allowedRole="jobseeker">
-              <JobSeekerForm/>
-            </ProtectedRoute>
-          }></Route>
-          <Route exact path='/jobs/:jobId' element={
-            <ProtectedRoute allowedRole="jobseeker">
-              <JobDetails />
-            </ProtectedRoute>
-          }></Route>
-          <Route exact path='/employerprofileform' element={
-            <ProtectedRoute allowedRole="employer">
-              <EmployerProfileForm/>
-            </ProtectedRoute>
-          }></Route>
-          <Route exact path='/job/edit/:jobId' element={
-            <ProtectedRoute allowedRole="employer">
-              <EditJob />
-            </ProtectedRoute>
-          }></Route>
-        </Routes>
+    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+      <h1 style={{ color: '#2563eb' }}>HireNest Application</h1>
+      <p>This is a simplified version to test rendering.</p>
+      <p>If you can see this text, React is working correctly!</p>
+      
+      <div style={{ marginTop: '20px', padding: '15px', border: '1px solid #ddd', borderRadius: '5px' }}>
+        <h2>Environment Info</h2>
+        <p>Mode: {import.meta.env.MODE}</p>
+        <p>Base URL: {import.meta.env.BASE_URL}</p>
+        <p>DEV: {String(import.meta.env.DEV)}</p>
+        <p>PROD: {String(import.meta.env.PROD)}</p>
       </div>
-      <ToastContainer position="top-right" autoClose={8000} />
-    </>
+    </div>
   )
 }
 
