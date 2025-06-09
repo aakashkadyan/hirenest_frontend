@@ -47,19 +47,111 @@
       padding: 1rem;
       text-align: center;
     }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #2563eb;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .nav-links a {
+      color: #4b5563;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .feature {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .feature h2 {
+      color: #2563eb;
+      margin-bottom: 1rem;
+    }
+    
+    .button {
+      display: inline-block;
+      background-color: #2563eb;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    
+    .button:hover {
+      background-color: #1d4ed8;
+    }
   </style>
 </head>
 <body>
+  <div class="nav">
+    <a href="/index.html" class="logo">HireNest</a>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/jobs.html">Jobs</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+
   <div class="header">
-    <h1>HireNest</h1>
+    <h1>Welcome to HireNest</h1>
     <p>Find your dream job or the perfect candidate</p>
   </div>
   
   <div class="container">
     <div class="hero">
-      <h1>Welcome to HireNest</h1>
-      <p>This is a simple static page to verify that Vercel deployment is working correctly.</p>
-      <p>If you can see this page, the basic HTML deployment is successful!</p>
+      <h1>Connecting Talent with Opportunity</h1>
+      <p>HireNest is a modern job board platform designed to streamline the hiring process for both employers and job seekers.</p>
+      <a href="/jobs" class="button">Get Started</a>
+    </div>
+    
+    <div class="features">
+      <div class="feature">
+        <h2>For Job Seekers</h2>
+        <p>Create a profile, upload your resume, and apply to jobs with just a few clicks. Get notifications for jobs that match your skills and preferences.</p>
+      </div>
+      
+      <div class="feature">
+        <h2>For Employers</h2>
+        <p>Post job openings, review applications, and connect with qualified candidates. Our matching algorithm helps you find the right talent quickly.</p>
+      </div>
+      
+      <div class="feature">
+        <h2>Smart Matching</h2>
+        <p>Our AI-powered matching system connects employers with candidates who have the right skills and experience for the job.</p>
+      </div>
     </div>
   </div>
   
