@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { Menu, X } from 'lucide-react';
 
 const Header = () => {
@@ -21,7 +21,7 @@ const Header = () => {
       <nav className="flex space-x-6">
         <Link to="/" className="hover:text-[#146edb] hover:scale-105 text-lg font-semibold">Home</Link>
         <Link to="/about" className="hover:text-[#146edb] hover:scale-105 text-lg font-semibold">About Us</Link>
-        <Link to="/career" className="hover:text-[#146edb] hover:scale-105 text-lg font-semibold">Career</Link>
+        <Link to="/jobs" className="hover:text-[#146edb] hover:scale-105 text-lg font-semibold">Career</Link>
         <Link to="/contact" className="hover:text-[#146edb] hover:scale-105 text-lg font-semibold">Contact Us</Link>
       </nav>
       <div>
